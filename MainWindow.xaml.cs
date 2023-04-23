@@ -26,32 +26,30 @@ namespace Calculator
         {
             InitializeComponent();
         }
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void Select_Operator(int _operator)
         {
             firstNumber = Convert.ToSingle(txtNumber.Text); 
             txtNumber.Text = "0"; 
-            operators = 0; 
+            operators = _operator; 
+        }
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Select_Operator(0);
         }
 
         private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 1; 
+            Select_Operator(1);
         }
 
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 2; 
+            Select_Operator(2);
         }
 
         private void btnDivide_Click(object sender, RoutedEventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 3; 
+            Select_Operator(3);
         }
         private void btnEqual_Click(object sender, RoutedEventArgs e)
         {
@@ -93,95 +91,60 @@ namespace Calculator
             secondNumber = 0f;
             operators = -1;
         }
-        private void btnZero_Click(object sender, RoutedEventArgs e)
+        private void Add_Number(string _number)
         {
             if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = " ";
-                txtNumber.Text += "0";
-            }
-            
+                txtNumber.Text = "";
+            txtNumber.Text = txtNumber.Text + _number;
+        }
+        private void btnZero_Click(object sender, RoutedEventArgs e)
+        {
+            Add_Number("0");
         }
         private void btnOne_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = " ";               
-            }
-            txtNumber.Text += "1";
+            Add_Number("1");
         }
 
         private void btnTwo_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";              
-            }
-            txtNumber.Text += "2";
+            Add_Number("2");
         }
 
         private void btnThree_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";               
-            }
-            txtNumber.Text += "3";
+            Add_Number("3");
         }
 
         private void btnFour_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";              
-            }
-            txtNumber.Text += "4";
+            Add_Number("4");
         }
 
         private void btnFive_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";             
-            }
-            txtNumber.Text += "5";
+            Add_Number("5");
         }
 
         private void btnSix_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";              
-            }
-            txtNumber.Text += "6";
+            Add_Number("6");
         }
 
         private void btnSeven_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";             
-            }
-            txtNumber.Text += "7";
+            Add_Number("7");
         }
 
         private void btnEight_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";               
-            }
-            txtNumber.Text += "8";
+            Add_Number("8");
         }
 
 
         private void btnNime_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text == "0")
-            {
-                txtNumber.Text = "";              
-            }
-            txtNumber.Text += "9";
+            Add_Number("9");
         }
     }
 }
