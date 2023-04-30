@@ -141,10 +141,50 @@ namespace Calculator
             Add_Number("8");
         }
 
-
         private void btnNime_Click(object sender, RoutedEventArgs e)
         {
             Add_Number("9");
         }
+
+        private void btnPercent_Click(object sender, RoutedEventArgs e)
+        {
+            float finalResults = 0f;
+            secondNumber = Convert.ToSingle(txtNumber.Text);
+
+
+            switch (operators)
+            {
+                case 0:
+                    finalResults = firstNumber + secondNumber;
+                    break;
+                case 1:
+                    finalResults = firstNumber - secondNumber;
+                    break;
+                case 2:
+                    finalResults = firstNumber * secondNumber;
+                    break;
+                case 3:
+                    finalResults = firstNumber / secondNumber;
+                    break;
+            }
+
+            txtNumber.Text = string.Format("{0:P2}", finalResults);
+            firstNumber = 0f;
+            secondNumber = 0f;
+            operators = -1;
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNumber.Text.Length >1)
+            {
+                txtNumber.Text =txtNumber.Text.Substring(0, txtNumber.Text.Length - 1);
+            }
+            else if (txtNumber.Text.Length==1)
+            {
+                txtNumber.Text = "0";
+            }
+        }
     }
+    
 }

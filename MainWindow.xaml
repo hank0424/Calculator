@@ -25,6 +25,8 @@
         <Button x:Name="btnZero" Content="0" HorizontalAlignment="Left" Height="58" Margin="333,352,0,0" VerticalAlignment="Top" Width="125" FontSize="36" Click="btnZero_Click"/>
         <Button x:Name="btnEqual" Content="=" HorizontalAlignment="Left" Height="58" Margin="475,352,0,0" VerticalAlignment="Top" Width="125" FontSize="36" Click="btnEqual_Click"/>
         <Button x:Name="btnAdd" Content="+" HorizontalAlignment="Left" Height="58" Margin="621,352,0,0" VerticalAlignment="Top" Width="125" FontSize="36" Click="btnAdd_Click"/>
+        <Button x:Name="btnBack" Content="&lt;&lt;" HorizontalAlignment="Left" Height="58" Margin="37,212,0,0" VerticalAlignment="Top" Width="125" FontSize="36" Click="btnBack_Click"/>
+        <Button x:Name="btnPercent" Content="%" HorizontalAlignment="Left" Height="58" Margin="37,352,0,0" VerticalAlignment="Top" Width="125" FontSize="36" Click="btnPercent_Click"/>
 
     </Grid>
 </Window>
