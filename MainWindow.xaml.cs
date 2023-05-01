@@ -20,7 +20,9 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        float firstNumber, secondNumber; 
+
+
+        Caculate caculate = new Caculate();
         int operators = -1;
         public MainWindow()
         {
@@ -28,7 +30,7 @@ namespace Calculator
         }
         private void Select_Operator(int _operator)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text); 
+            caculate.firstNumber = Convert.ToSingle(txtNumber.Text); 
             txtNumber.Text = "0"; 
             operators = _operator; 
         }
@@ -54,29 +56,28 @@ namespace Calculator
         private void btnEqual_Click(object sender, RoutedEventArgs e)
         {
             float finalResults = 0f; 
-            secondNumber = Convert.ToSingle(txtNumber.Text); 
+            caculate.secondNumber = Convert.ToSingle(txtNumber.Text); 
 
             
             switch (operators)
             {
                 case 0:
-                    finalResults = firstNumber + secondNumber;
+                    finalResults = caculate.Add();
                     break;
                 case 1:
-                    finalResults = firstNumber - secondNumber;
+                    finalResults = caculate.Subtract();
                     break;
                 case 2:
-                    finalResults = firstNumber * secondNumber;
+                    finalResults = caculate.Multiply();
                     break;
                 case 3:
-                    finalResults = firstNumber / secondNumber;
+                    finalResults =caculate.Divide();
                     break;
             }
 
-            txtNumber.Text = string.Format("{0:0.##########}", finalResults); 
-            firstNumber = 0f;
-            secondNumber = 0f;
-            operators = -1;
+            txtNumber.Text = string.Format("{0:0.##########}", finalResults);
+
+            caculate.Reset();
         }
         private void btnDot_Click(object sender, RoutedEventArgs e)
         {
@@ -87,9 +88,7 @@ namespace Calculator
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             txtNumber.Text = "0";
-            firstNumber = 0f;
-            secondNumber = 0f;
-            operators = -1;
+            caculate.Reset();
         }
         private void Add_Number(string _number)
         {
@@ -148,30 +147,14 @@ namespace Calculator
 
         private void btnPercent_Click(object sender, RoutedEventArgs e)
         {
-            float finalResults = 0f;
-            secondNumber = Convert.ToSingle(txtNumber.Text);
-
-
-            switch (operators)
+            double result;
+            if (txtNumber.Text.Length > 0)
             {
-                case 0:
-                    finalResults = firstNumber + secondNumber;
-                    break;
-                case 1:
-                    finalResults = firstNumber - secondNumber;
-                    break;
-                case 2:
-                    finalResults = firstNumber * secondNumber;
-                    break;
-                case 3:
-                    finalResults = firstNumber / secondNumber;
-                    break;
+                if (double.TryParse(txtNumber.Text, out result) == true)
+                {
+                    txtNumber.Text = string.Format("{0:0.####}", result / 100);
+                }
             }
-
-            txtNumber.Text = string.Format("{0:P2}", finalResults);
-            firstNumber = 0f;
-            secondNumber = 0f;
-            operators = -1;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
