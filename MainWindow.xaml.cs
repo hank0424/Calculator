@@ -147,13 +147,11 @@ namespace Calculator
 
         private void btnPercent_Click(object sender, RoutedEventArgs e)
         {
-            double result;
-            if (txtNumber.Text.Length > 0)
+            if (txtNumber.Text.Length > 1)
             {
-                if (double.TryParse(txtNumber.Text, out result) == true)
-                {
-                    txtNumber.Text = string.Format("{0:0.####}", result / 100);
-                }
+                float result;
+                result = Convert.ToSingle(txtNumber.Text);
+                txtNumber.Text = string.Format("{0:0.####}", result / 100);
             }
         }
 
